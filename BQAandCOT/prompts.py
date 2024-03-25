@@ -1,4 +1,4 @@
-method_explanation={"Direct":"""You solve the following probabilistic question and generate the probability of the answer by only providing a number from 00 to 99 without any explanation:\n""",
+method_explanation={"BQA":"""You solve the following probabilistic question and generate the probability of the answer by only providing a number from 00 to 99 without any explanation:\n""",
 "COT":"""
 You solve the following probabilistic question and provide a detailed explanation of your solution and mathematical reasoning.
 At the end of your answer, write a sentence that will give your final answer rounded to its closest integer, as such:
@@ -8,13 +8,13 @@ The answer to this probabilistic question rounded to the closest integer is 71%.
 #2 0.3899999999999999
 e1={"context":"If purple event is False, then grey event is True with probability of 39%. If purple event is False, then grey event is False with probability of 61%. If purple event is True, then grey event is True with probability of 3%. If purple event is True, then grey event is False with probability of 97%. purple event is true with probability of 55%. purple event is false with probability of 45%. ",
     "query":"What is the probability that grey event is True given that purple event is False?",
-    "Direct":"39",
+    "BQA":"39",
     "COT":"""This probablity is given to us in the context and as a result if final answer is 39%."""}
 
 #121 0.3996569250317662
 e2={"context":"pink event is true with probability of 87%. pink event is false with probability of 13%. If pink event is False, then black event is True with probability of 45%. If pink event is False, then black event is False with probability of 55%. If pink event is True, then black event is True with probability of 62%. If pink event is True, then black event is False with probability of 38%. If pink event is False, then red event is True with probability of 42%. If pink event is False, then red event is False with probability of 58%. If pink event is True, then red event is True with probability of 48%. If pink event is True, then red event is False with probability of 52%. ",
     "query":"What is the probability that black event is False given that red event is True?",
-    "Direct":"40",
+    "BQA":"40",
     "COT":"""
 To find: P(Black=False|Red=True) According to Bayes' Theorem:
 P(Black=False|Red=True) = P(Black=False and Red=True) / P(Red=True)
@@ -31,7 +31,7 @@ So the final answer is approximately 40%.
 #228 0.2319835959421541
 e3={"context":"If black event is False, then pink event is True with probability of 22%. If black event is False, then pink event is False with probability of 78%. If black event is True, then pink event is True with probability of 10%. If black event is True, then pink event is False with probability of 90%. black event is true with probability of 61%. black event is false with probability of 39%. If pink event is False, then yellow event is True with probability of 19%. If pink event is False, then yellow event is False with probability of 81%. If pink event is True, then yellow event is True with probability of 72%. If pink event is True, then yellow event is False with probability of 28%. If pink event is False, then blue event is True with probability of 20%. If pink event is False, then blue event is False with probability of 80%. If pink event is True, then blue event is True with probability of 60%. If pink event is True, then blue event is False with probability of 40%. ",
     "query":"What is the probability that yellow event is True given that blue event is False?",
-    "Direct": "23",
+    "BQA": "23",
     "COT":"""
 We need to calculate the probability of Yellow event being True given that Blue event is False.
 P(Yellow=True | Blue=False) = P(Yellow=True and Blue=False) / P(Blue=False)

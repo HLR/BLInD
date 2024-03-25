@@ -13,7 +13,6 @@ parser.add_argument('--samplenum', dest='samplenum', default=2000, help='how man
 parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo-0613", "gpt-4-0613","all"], help="Choose a model")
 parser.add_argument('--maxattempt', dest='maxattempt', default=10, help='max number of attempts after a failed prompt to openai',type=int)
 parser.add_argument('--CLADDER', dest='CLADDER', action='store_true', help='use CLADDER dataset', default=False)
-
 args = parser.parse_args()
 
 client = OpenAI(api_key=args.openaikey,organization=args.openaiorg)
@@ -69,7 +68,7 @@ for attempts in range(args.maxattempt):
                         df.to_csv(file_name, mode='a', header=False, index=False)
                     else:
                         df.to_csv(file_name, index=False)
-                    if model_name == "gpt-4":
+                    if model_name == "gpt-4-0613":
                         time.sleep(16)
                     else:
                         time.sleep(1)
