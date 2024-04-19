@@ -3,7 +3,7 @@ import pandas as pd
 from utils import extract_sections
 parser = argparse.ArgumentParser(description='Test LLMs for bayesian infernece')
 parser.add_argument('--testdataset', dest='testdataset', default="../datasets/Colored_1000_examples.csv", help='input test dataset',type=str)
-parser.add_argument('--outputdataset', dest='outputdataset', default="../datasets/", help='dataset folder to save the results',type=str)
+parser.add_argument('--outputdataset', dest='outputdataset', default="../datasets/", help='Dataset folder that has saved the results',type=str)
 parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo-0613", "gpt-4-0613","all"], help="Choose a model")
 parser.add_argument('--method', dest='method', default="PAL",choices=["PAL", "MC"], help='method to solve the problem')
 parser.add_argument('--CLADDER', dest='CLADDER', action='store_true', help='use CLADDER dataset', default=False)

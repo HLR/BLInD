@@ -48,7 +48,7 @@ P(Blue=False) = P(Blue=False | Pink=True)*P(Pink=True) + P(Blue=False | Pink=Fal
 Next, calculate P(Yellow=True and Blue=False)
 P(Yellow=True and Blue=False) = P(Yellow=True | Pink=True)*P(Blue=False | Pink=True)*P(Pink=True) + P(Yellow=True | Pink=False)*P(Blue=False | Pink=False)*P(Pink=False) = (0.72 * 0.4 * 0.1468) + (0.19 * 0.8 * 0.8532) = 0.1719648
 
-# Finally, calculate P(Yellow=True | Blue=False)
+Finally, calculate P(Yellow=True | Blue=False)
 P(Yellow=True | Blue=False) = 0.1719648 / 0.74128 = 0.2319
 So the final answer is approximately 23%.
 """}
