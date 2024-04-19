@@ -22,10 +22,10 @@ Our paper investigates various methodologies to assess and enhance the probabili
 2. **Subtasks**:
    - [Number Extraction (NE)](./NE/)
    - [Graph Generation (GG)](./GG/)
-3. **Symbolic Computations**:
+3. **Symbolic Methods**:
    - [Python code (PAL - Program Aided Language Models)](./PALandMC/)
    - [Monte Carlo algorithms (MC)](./PALandMC/)
-   - [ProbLog](./Problog/).
+   - [ProbLog](./Problog/)
 
 ## Repository Structure
 
@@ -38,14 +38,12 @@ Our paper investigates various methodologies to assess and enhance the probabili
 
 ## Dependencies
 
-Ensure you have the following Python version and packages installed:
-- Python 3.10.6
-- openai 1.6.1
-- problog 2.2.4
-- pandas
-- pgmpy
-- networkx
-- numpy
+Ensure you have Python 3.10.6 or newer installed. To install the required Python packages, run the following commands in your terminal:
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 
 ## Citation
 
