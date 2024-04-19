@@ -1,6 +1,6 @@
 # Probabilistic Reasoning in Generative Large Language Models
 
-This repository is dedicated to the research and findings presented in the paper "Probabilistic Reasoning in Generative Large Language Models." Our study introduces the Bayesian Linguistic Inference Dataset (BLInD) and delves into the capabilities and limitations of Large Language Models (LLMs) in executing probabilistic reasoning with explicitly quantified uncertainties.
+This repository is dedicated to the research and findings presented in the paper ["Probabilistic Reasoning in Generative Large Language Models."](https://arxiv.org/abs/2402.09614) Our study introduces the Bayesian Linguistic Inference Dataset (BLInD) and delves into the capabilities and limitations of Large Language Models (LLMs) in executing probabilistic reasoning with explicitly quantified uncertainties.
 
 ## Dataset Overview
 
