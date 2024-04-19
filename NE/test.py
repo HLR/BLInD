@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(description='Test LLMs for Number Extraction')
 parser.add_argument('--testdataset', dest='testdataset', default="../datasets/Colored_1000_examples.csv", help='input test dataset',type=str)
 parser.add_argument('--outputdataset', dest='outputdataset', default="../datasets/", help='Dataset folder that has saved the results',type=str)
 parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo-0613", "gpt-4-0613","all"], help="Choose a model")
-parser.add_argument('--reversed', dest='reversed', default=False, help='whther to not to include graph first',type=bool)
+parser.add_argument('--reversed', dest='reversed', action='store_true', help='Whether to reverse the order of operations by including the graph first', default=False)
 args = parser.parse_args()
 
 
