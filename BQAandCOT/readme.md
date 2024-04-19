@@ -4,7 +4,7 @@
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/HLR/BLInD.git
 cd BLInD
 ```
 2. Install the required dependencies:
