@@ -79,5 +79,5 @@ Here are our results using these methods detailed in the paper.
 |       | MC        | 95 | 100| 100| 90 | 90 | 90 | 90 | 60 | 60  | 96   | 78    | 86   |
 |       | MC W/GG   | 100| 100| 100| 90 | 100| 85 | 95 | 100| 70  | 97   | 90    | 93   |
 
-> **Table**: GPT3.5 and GPT4 results for the PAL, MC, and ProbLog methods. "W/NE" and "W/GG" denote inclusion of NE and GG enhancements respectively. The last three columns show the average accuracies over the dataset splits.
+**Table**: GPT3.5 and GPT4 results for the PAL, MC methods. "W/NE" and "W/GG" denote inclusion of NE and GG enhancements respectively. The last three columns show the average accuracies over the dataset splits.
 
