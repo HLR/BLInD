@@ -78,5 +78,5 @@ Here are our results using these methods detailed in the paper.
 | | COT ZS | 90 | 45 | 50 | 35 | 30 | 15 | 20 | 5 | 5 | 55 | 15 | 32 |
 | | COT FS | 100 | 60 | 50 | 35 | 30 | 15 | 20 | 5 | 5 | 61 | 15 | 35 |
 
-> **Table**: GPT3.5 and GPT4 results for BQA and COT methods. The columns show the variable size of the tested dataset, while the rows show the prompting methods that are either BQA or COT. These methods are tested with zero-shot (ZS) and few-shot (FS) settings. The last three columns show the average accuracies over the $V_i$s.
+**Table**: GPT3.5 and GPT4 results for BQA and COT methods. The columns show the variable size of the tested dataset, while the rows show the prompting methods that are either BQA or COT. These methods are tested with zero-shot (ZS) and few-shot (FS) settings. The last three columns show the average accuracies over the $V_i$s.
 
