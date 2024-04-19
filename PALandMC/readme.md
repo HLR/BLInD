@@ -19,7 +19,7 @@ cd PALandMC
 To query LLMs for Bayesian inference, use the `main.py` script:
 ```bash
 python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] [--openaikey OPENAIKEY]
-[--openaiorg OPENAIORG] [--method {BQA,COT}] [--samplenum SAMPLENUM]
+[--openaiorg OPENAIORG] [--method {PAL,MC}] [--samplenum SAMPLENUM]
 [--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--maxattempt MAXATTEMPT] [--CLADDER]
 ```
 
@@ -41,7 +41,7 @@ This program saves every answer after each prompt. If it terminates, run it agai
 To test LLMs for Bayesian inference, use the `test.py` script:
 ```bash
 python test.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET]
-[--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--CLADDER]
+[--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--method {PAL,MC}] [--CLADDER]
 ```
 - `--testdataset`: Input test dataset (default: "../datasets/Colored_1000_examples.csv")
 - `--outputdataset`: Dataset folder that has saved the results (default: "../datasets/")
