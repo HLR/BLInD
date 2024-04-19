@@ -37,7 +37,7 @@ This program saves every answer after each prompt. If it terminates, run it agai
 ### Testing LLMs for Bayesian Inference
 
 
-To test LLMs for Bayesian inference, use the `test.py` script:
+To test LLMs using ProbLog method, use the `test.py` script:
 ```bash
 python test.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET]
 [--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--CLADDER]
