@@ -10,11 +10,15 @@ The BLInD dataset is crafted to evaluate the probabilistic reasoning skills of L
 - Probabilistic queries posed in natural language.
 - Precise answers corresponding to these queries.
 
-This dataset is produced through a systematic pipeline that constructs Bayesian Networks, populates Conditional Probability Tables (CPTs), formulates queries, and translates all components into natural language. The dataset files and the Python scripts used for generation are available in the [datasets directory](./datasets/).
+![Example Image](images/pipeline.png)
+This dataset is produced through a systematic pipeline (shown in the Figure above) that constructs Bayesian Networks, populates Conditional Probability Tables (CPTs), formulates queries, and translates all components into natural language. The dataset files and the Python scripts used for generation are available in the [datasets directory](./datasets/).
 
 ## Methodological Approaches
 
-Our paper investigates various methodologies to assess and enhance the probabilistic reasoning of LLMs:
+![Example Image](images/methods.png)
+Examples of methods are shown in the Figure. Each method forms a prompt that starts with an instruction (purple boxes) that describes the problem and the solution format. Then, the context and query and answer that solves the query based on the context are demonstrated (based on our first in-context example) to the LLM. If NE or GG subtasks are used with the method, their instruction and answers are appended, as shown in the PAL method for NE and the MC method for GG.
+
+Use the following links to access the Python code to execute and test these methods:
 
 1. **Baselines**:
    - [Basic Question Answering (BQA)](./BQAandCOT/)
@@ -26,6 +30,8 @@ Our paper investigates various methodologies to assess and enhance the probabili
    - [Python code (PAL - Program Aided Language Models)](./PALandMC/)
    - [Monte Carlo algorithms (MC)](./PALandMC/)
    - [ProbLog](./Problog/)
+
+
 
 ## Repository Structure
 
