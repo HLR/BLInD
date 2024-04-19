@@ -59,7 +59,7 @@ You can specify the model(s) to use with the `--models` argument. By default, it
 
 ## Output
 
-The results of running Bayesian inference are saved in the dataset folder specified by the `--outputdataset` argument. The output files are named based on the method, model name, and whether few-shot learning is used.
+The results of running Bayesian inference are saved in the dataset folder specified by the `--outputdataset` argument. The output files are named based on the arguments set in `main.py`.
 
 ## Our Results
 
