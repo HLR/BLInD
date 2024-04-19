@@ -1,0 +1,6 @@
+openai==1.6.1
+problog==2.2.4
+pandas
+pgmpy
+networkx
+numpy
