@@ -20,7 +20,7 @@ To query LLMs for GG, use the `main.py` script:
 ```bash
 python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] [--openaikey OPENAIKEY]
 [--openaiorg OPENAIORG] [--samplenum SAMPLENUM]
-[--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--maxattempt MAXATTEMPT]
+[--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--maxattempt MAXATTEMPT] [--reversed]
 ```
 
 - `--testdataset`: Input test dataset (default: "../datasets/Colored_1000_examples.csv")
@@ -46,7 +46,8 @@ python test.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET]
 - `--outputdataset`: Dataset folder that has saved the results (default: "../datasets/")
 - `--models`: Choose a model (choices: "gpt-3.5-turbo-0613", "gpt-4-0613", "all", default: "all")
 - `--reversed`: Whether to reverse the order of operations by including the graph first. (default: False)
-- 
+
+  
 ## Dataset
 
 The code uses a test dataset specified by the `--testdataset` argument. By default, it uses the "../datasets/Colored_1000_examples.csv" dataset.
