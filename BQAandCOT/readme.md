@@ -63,3 +63,20 @@ You can specify the model(s) to use with the `--models` argument. By default, it
 ## Output
 
 The results of running Bayesian inference are saved in the dataset folder specified by the `--outputdataset` argument. The output files are named based on the method, model name, and whether few-shot learning is used.
+
+## Our Results
+
+Here are our results using these methods detailed in the paper.
+| Model | Method | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V2-5 | V6-10 | V2-10 |
+|-------|--------|----|----|----|----|----|----|----|----|-----|------|-------|------|
+| **GPT3.5** | BQA ZS | 33 | 13 | 5 | 4 | 6 | 2 | 3 | 1 | 2 | 13 | 2 | 7 |
+| | BQA FS | 3 | 0 | 1 | 1 | 2 | 2 | 1 | 1 | 0 | 1 | 1 | 1 |
+| | COT ZS | 53 | 8 | 4 | 5 | 10 | 5 | 2 | 2 | 0 | 17 | 3 | 9 |
+| | COT FS | 52 | 23 | 12 | 5 | 8 | 4 | 1 | 4 | 2 | 23 | 3 | 12 |
+| **GPT4** | BQA ZS | 80 | 10 | 15 | 10 | 20 | 0 | 15 | 10 | 5 | 28 | 10 | 18 |
+| | BQA FS | 75 | 10 | 30 | 25 | 35 | 15 | 5 | 5 | 0 | 35 | 12 | 22 |
+| | COT ZS | 90 | 45 | 50 | 35 | 30 | 15 | 20 | 5 | 5 | 55 | 15 | 32 |
+| | COT FS | 100 | 60 | 50 | 35 | 30 | 15 | 20 | 5 | 5 | 61 | 15 | 35 |
+
+> **Table**: GPT3.5 and GPT4 results for BQA and COT methods. The columns show the variable size of the tested dataset, while the rows show the prompting methods that are either BQA or COT. These methods are tested with zero-shot (ZS) and few-shot (FS) settings. The last three columns show the average accuracies over the $V_i$s.
+
