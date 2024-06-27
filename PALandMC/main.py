@@ -80,13 +80,13 @@ for attempts in range(args.maxattempt):
                                 e2_msg="graph:\n"+e2["graph"]+"solution:\n"+replace_numbers(e2[args.method],e2["numbers"])
                                 e3_msg="graph:\n"+e3["graph"]+"solution:\n"+replace_numbers(e3[args.method],e3["numbers"])
 
-                        openai_messages=[{"role": "assistant", "content": explanation},
+                        openai_messages=[{"role": "system", "content": explanation},
                                             {"role": "user", "content": e1["context"]+"\nquestion:\n"+e1["query"]},
-                                            {"role": "system", "content": e1_msg},
+                                            {"role": "assistant", "content": e1_msg},
                                             {"role": "user", "content": e2["context"]+"\nquestion:\n"+e2["query"]},
-                                            {"role": "system", "content": e2_msg},
+                                            {"role": "assistant", "content": e2_msg},
                                             {"role": "user", "content": e3["context"]+"\nquestion:\n"+e3["query"]},
-                                            {"role": "system", "content": e3_msg},
+                                            {"role": "assistant", "content": e3_msg},
                                             {"role": "user", "content": i["contexts"]+"\nquestion:\n"+i["query"]},]
  
                         response = client.chat.completions.create(model=model_name, messages=openai_messages, max_tokens=1500, temperature=0.2)
