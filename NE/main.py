@@ -53,32 +53,32 @@ for attempts in range(args.maxattempt):
                         continue
                     print(model_name,num)
                     if not graph_use:
-                        openai_messages=[{"role": "assistant", "content": explanation},
+                        openai_messages=[{"role": "system", "content": explanation},
                                             {"role": "user", "content": e1["context"]},
-                                            {"role": "system", "content": e1["numbers"]},
+                                            {"role": "assistant", "content": e1["numbers"]},
                                             {"role": "user", "content": e2["context"]},
-                                            {"role": "system", "content": e2["numbers"]},
+                                            {"role": "assistant", "content": e2["numbers"]},
                                             {"role": "user", "content": e3["context"]},
-                                            {"role": "system", "content": e3["numbers"]},
+                                            {"role": "assistant", "content": e3["numbers"]},
                                             {"role": "user", "content": i["contexts"]},]
                     else:
                         if not args.reversed:
-                            openai_messages=[{"role": "assistant", "content": explanation},
+                            openai_messages=[{"role": "system", "content": explanation},
                                                 {"role": "user", "content": e1["context"]},
-                                                {"role": "system", "content": "graph:\n"+e1["graph"]+"\nnumbers:\n"+e1["numbers"]},
+                                                {"role": "assistant", "content": "graph:\n"+e1["graph"]+"\nnumbers:\n"+e1["numbers"]},
                                                 {"role": "user", "content": e2["context"]},
-                                                {"role": "system", "content": "graph:\n"+e2["graph"]+"\nnumbers:\n"+e2["numbers"]},
+                                                {"role": "assistant", "content": "graph:\n"+e2["graph"]+"\nnumbers:\n"+e2["numbers"]},
                                                 {"role": "user", "content": e3["context"]},
-                                                {"role": "system", "content": "graph:\n"+e3["graph"]+"\nnumbers:\n"+e3["numbers"]},
+                                                {"role": "assistant", "content": "graph:\n"+e3["graph"]+"\nnumbers:\n"+e3["numbers"]},
                                                 {"role": "user", "content": i["contexts"]},]
                         else:
-                            openai_messages=[{"role": "assistant", "content": explanation},
+                            openai_messages=[{"role": "system", "content": explanation},
                                                 {"role": "user", "content": e1["context"]},
-                                                {"role": "system", "content": "numbers:\n"+e1["numbers"]+"\ngraph:\n"+e1["graph"]},
+                                                {"role": "assistant", "content": "numbers:\n"+e1["numbers"]+"\ngraph:\n"+e1["graph"]},
                                                 {"role": "user", "content": e2["context"]},
-                                                {"role": "system", "content": "numbers:\n"+e2["numbers"]+"\ngraph:\n"+e2["graph"]},
+                                                {"role": "assistant", "content": "numbers:\n"+e2["numbers"]+"\ngraph:\n"+e2["graph"]},
                                                 {"role": "user", "content": e3["context"]},
-                                                {"role": "system", "content": "numbers:\n"+e3["numbers"]+"\ngraph:\n"+e3["graph"]},
+                                                {"role": "assistant", "content": "numbers:\n"+e3["numbers"]+"\ngraph:\n"+e3["graph"]},
                                                 {"role": "user", "content": i["contexts"]},]
                             
                     response = client.chat.completions.create(model=model_name, messages=openai_messages, max_tokens=1000, temperature=0.2)
