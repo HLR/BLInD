@@ -49,13 +49,13 @@ for attempts in range(args.maxattempt):
                         continue
                     print(model_name,num)
                     if few_shot:
-                        openai_messages=[{"role": "assistant", "content": explanation},
+                        openai_messages=[{"role": "system", "content": explanation},
                                             {"role": "user", "content": e1["context"]+"\nquestion:\n"+e1["query"]},
-                                            {"role": "system", "content": e1[args.method]},
+                                            {"role": "assistant", "content": e1[args.method]},
                                             {"role": "user", "content": e2["context"]+"\nquestion:\n"+e2["query"]},
-                                            {"role": "system", "content": e2[args.method]},
+                                            {"role": "assistant", "content": e2[args.method]},
                                             {"role": "user", "content": e3["context"]+"\nquestion:\n"+e3["query"]},
-                                            {"role": "system", "content": e3[args.method]},
+                                            {"role": "assistant", "content": e3[args.method]},
                                             {"role": "user", "content": i["contexts"]+"\nquestion:\n"+i["query"]},]
                     else:
                         openai_messages=[{"role": "assistant", "content": explanation},
