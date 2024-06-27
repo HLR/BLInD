@@ -40,13 +40,13 @@ for attempts in range(args.maxattempt):
                 if num < len(existing_df):
                     continue
                 print(model_name,num)
-                openai_messages=[{"role": "assistant", "content": explanation},
+                openai_messages=[{"role": "system", "content": explanation},
                                     {"role": "user", "content": e1["context"]},
-                                    {"role": "system", "content": e1["graph"]},
+                                    {"role": "assistant", "content": e1["graph"]},
                                     {"role": "user", "content": e2["context"]},
-                                    {"role": "system", "content": e2["graph"]},
+                                    {"role": "assistant", "content": e2["graph"]},
                                     {"role": "user", "content": e3["context"]},
-                                    {"role": "system", "content": e3["graph"]},
+                                    {"role": "assistant", "content": e3["graph"]},
                                     {"role": "user", "content": i["contexts"]},]
                 response = client.chat.completions.create(model=model_name, messages=openai_messages, max_tokens=500, temperature=0.2)
                 response_text=response.choices[0].message.content
