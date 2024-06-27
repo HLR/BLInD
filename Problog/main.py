@@ -77,13 +77,13 @@ for attempts in range(args.maxattempt):
                             e2_msg="numbers:\n"+e2["numbers"]+"\ngraph:\n"+e2["graph"]+"\nsolution:\n"+e2["problog_with_numbers"]
                             e3_msg="numbers:\n"+e3["numbers"]+"\ngraph:\n"+e3["graph"]+"\nsolution:\n"+e3["problog_with_numbers"]
 
-                        openai_messages=[{"role": "assistant", "content": explanation},
+                        openai_messages=[{"role": "system", "content": explanation},
                                             {"role": "user", "content": e1["context"]+"\nquestion:\n"+e1["query"]},
-                                            {"role": "system", "content": e1_msg},
+                                            {"role": "assistant", "content": e1_msg},
                                             {"role": "user", "content": e2["context"]+"\nquestion:\n"+e2["query"]},
-                                            {"role": "system", "content": e2_msg},
+                                            {"role": "assistant", "content": e2_msg},
                                             {"role": "user", "content": e3["context"]+"\nquestion:\n"+e3["query"]},
-                                            {"role": "system", "content": e3_msg},
+                                            {"role": "assistant", "content": e3_msg},
                                             {"role": "user", "content": i["contexts"]+"\nquestion:\n"+i["query"]},]
  
                         response = client.chat.completions.create(model=model_name, messages=openai_messages, max_tokens=1500, temperature=0.2)
