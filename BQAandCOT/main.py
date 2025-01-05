@@ -11,7 +11,7 @@ parser.add_argument('--openaikey', dest='openaikey', default="", help='openai ke
 parser.add_argument('--openaiorg', dest='openaiorg', default="", help='openai org',type=str)
 parser.add_argument('--replicatekey', dest='replicatekey', default="", help='replicate key',type=str)
 parser.add_argument('--method', dest='method', default="BQA",choices=["BQA", "COT"], help='method to solve the problem')
-parser.add_argument('--samplenum', dest='samplenum', default=2, help='how many instances of the dataset to read',type=int)
+parser.add_argument('--samplenum', dest='samplenum', default=2000, help='how many instances of the dataset to read',type=int)
 parser.add_argument('--models',dest='models',nargs='+',default=["gpt-3.5-turbo", "gpt-4-0613","meta/meta-llama-3-70b-instruct","mistralai/mistral-7b-instruct-v0.2", "meta/llama-2-70b-chat"],choices=["gpt-3.5-turbo", "gpt-4-0613","meta/meta-llama-3-70b-instruct","mistralai/mistral-7b-instruct-v0.2", "meta/llama-2-70b-chat"], help="Specify one or more models.")
 parser.add_argument('--maxattempt', dest='maxattempt', default=10, help='max number of attempts after a failed prompt to openai',type=int)
 parser.add_argument('--CLADDER', dest='CLADDER', action='store_true', help='use CLADDER dataset', default=False)
