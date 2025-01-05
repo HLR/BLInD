@@ -22,35 +22,46 @@ cd PALandMC
 
 To query LLMs for Bayesian inference using PAL and MC methods, use the `main.py` script:
 ```bash
-python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] [--openaikey OPENAIKEY]
-[--openaiorg OPENAIORG] [--method {PAL,MC}] [--samplenum SAMPLENUM]
-[--models {gpt-3.5-turbo,gpt-4-0613,all}] [--maxattempt MAXATTEMPT] [--CLADDER]
+python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] 
+[--openaikey OPENAIKEY] [--openaiorg OPENAIORG] [--replicatekey REPLICATEKEY]
+[--method {PAL,MC}] [--samplenum SAMPLENUM] 
+[--models MODEL [MODEL ...]] [--maxattempt MAXATTEMPT] [--CLADDER]
 ```
+
+### Arguments
 
 - `--testdataset`: Input test dataset (default: "../datasets/Colored_1000_examples.csv")
 - `--outputdataset`: Dataset folder to save the results (default: "../datasets/")
 - `--openaikey`: OpenAI API key
 - `--openaiorg`: OpenAI organization key
+- `--replicatekey`: Replicate.ai API key (required for non-GPT models)
 - `--method`: Method to solve the problem (choices: "PAL", "MC", default: "PAL")
-- `--samplenum`: Number of instances of the dataset to read (Max is 900)
-- `--models`: Choose a model (choices: "gpt-3.5-turbo", "gpt-4-0613", "all", default: "all")
-- `--maxattempt`: Max number of attempts after a failed prompt to OpenAI (default: 10)
+- `--samplenum`: Number of instances of the dataset to read (default: 2000)
+- `--models`: Choose one or more models from:
+  - gpt-3.5-turbo
+  - gpt-4-0613
+  - meta/meta-llama-3-70b-instruct
+  - mistralai/mistral-7b-instruct-v0.2
+  - meta/llama-2-70b-chat
+- `--maxattempt`: Max number of attempts after a failed prompt (default: 10)
 - `--CLADDER`: Use CLADDER dataset (default: False)
 
-This program saves every answer after each prompt. If it terminates, run it again, and it will pick up where it left off. The program by default test each method with and without NE and GG and saves their results separately.
+**Note:** For non-GPT models (Llama, Mistral), you need to provide a Replicate.ai API key using the `--replicatekey` argument.
+
+This program saves every answer after each prompt. If it terminates, run it again, and it will pick up where it left off. The program by default tests each method with and without NE and GG and saves their results separately.
 
 ### Testing LLMs for Bayesian Inference
-
 
 To test LLMs using PAL and MC methods, use the `test.py` script:
 ```bash
 python test.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET]
-[--models {gpt-3.5-turbo,gpt-4-0613,all}] [--method {PAL,MC}] [--CLADDER]
+[--models MODEL [MODEL ...]] [--method {PAL,MC}] [--CLADDER]
 ```
+
 - `--testdataset`: Input test dataset (default: "../datasets/Colored_1000_examples.csv")
 - `--outputdataset`: Dataset folder that has saved the results (default: "../datasets/")
-- `--models`: Choose a model (choices: "gpt-3.5-turbo", "gpt-4-0613", "all", default: "all")
-- `--method`: Specifies the method whose result is to be tested. Available choices are "PAL" and "MC". The default value is "PAL".
+- `--models`: Choose one or more models (same choices as main.py)
+- `--method`: Method to test (choices: "PAL", "MC", default: "PAL")
 - `--CLADDER`: Use CLADDER dataset (default: False)
 
 ## Dataset
@@ -59,29 +70,16 @@ The code uses a test dataset specified by the `--testdataset` argument. By defau
 
 ## Models
 
-The code supports running Bayesian inference with the following LLMs:
-- gpt-3.5-turbo
-- GPT-4-0613
+The code supports running Bayesian inference with multiple LLMs:
 
-You can specify the model(s) to use with the `--models` argument. By default, it runs inference with both models one after the other.
+- gpt-3.5-turbo
+- gpt-4-0613
+- meta/meta-llama-3-70b-instruct
+- mistralai/mistral-7b-instruct-v0.2
+- meta/llama-2-70b-chat
+
+You can specify one or more models using the `--models` argument. For non-GPT models, make sure to provide your Replicate.ai API key.
 
 ## Output
 
 The results of running Bayesian inference are saved in the dataset folder specified by the `--outputdataset` argument. The output files are named based on the arguments set in `main.py`.
-
-## Our Results
-
-Here are our results using these methods detailed in the paper.
-
-| Model | Method   | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V2-5 | V6-10 | V2-10 |
-|-------|----------|----|----|----|----|----|----|----|----|-----|------|-------|------|
-| **GPT3.5** | PAL       | 66 | 34 | 25 | 17 | 14 | 9  | 6  | 5  | 2   | 35   | 7     | 19   |
-|       | PAL W/NE  | 85 | 66 | 41 | 27 | 19 | 12 | 5  | 3  | 6   | 54   | 9     | 29   |
-|       | MC        | 79 | 63 | 71 | 65 | 41 | 32 | 33 | 18 | 14  | 69   | 27    | 46   |
-|       | MC W/GG   | 85 | 82 | 83 | 68 | 42 | 31 | 28 | 18 | 8   | 79   | 25    | 49   |
-| **GPT4**   | PAL       | 100| 95 | 80 | 70 | 45 | 40 | 30 | 20 | 10  | 86   | 29    | 54   |
-|       | MC        | 95 | 100| 100| 90 | 90 | 90 | 90 | 60 | 60  | 96   | 78    | 86   |
-|       | MC W/GG   | 100| 100| 100| 90 | 100| 85 | 95 | 100| 70  | 97   | 90    | 93   |
-
-**Table**: GPT3.5 and GPT4 results for the PAL, MC methods. "W/NE" and "W/GG" denote inclusion of NE and GG enhancements respectively. The last three columns show the average accuracies over the dataset splits.
-
