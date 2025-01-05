@@ -35,7 +35,7 @@ python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] [--op
 - `--openaiorg`: OpenAI organization key
 - `--replicatekey`: Replicate.ai API key (required for non-GPT models)
 - `--method`: Method to solve the problem (choices: "BQA", "COT", default: "BQA")
-- `--samplenum`: Number of instances of the dataset to read (default: 2)
+- `--samplenum`: Number of instances of the dataset to read (default: 2000)
 - `--models`: Choose one or more models (choices: "gpt-3.5-turbo", "gpt-4-0613", "meta/meta-llama-3-70b-instruct", "mistralai/mistral-7b-instruct-v0.2", "meta/llama-2-70b-chat")
 - `--maxattempt`: Max number of attempts after a failed prompt to OpenAI (default: 10)
 - `--CLADDER`: Use CLADDER dataset (default: False)
