@@ -5,3 +5,4 @@ pandas
 pgmpy
 networkx
 numpy
+replicate
