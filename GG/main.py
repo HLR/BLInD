@@ -9,7 +9,7 @@ parser.add_argument('--outputdataset', dest='outputdataset', default="../dataset
 parser.add_argument('--openaikey', dest='openaikey', default="", help='openai key',type=str)
 parser.add_argument('--openaiorg', dest='openaiorg', default="", help='openai org',type=str)
 parser.add_argument('--samplenum', dest='samplenum', default=2000, help='how many instances of the dataset to read',type=int)
-parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo-0613", "gpt-4-0613","all"], help="Choose a model")
+parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo", "gpt-4-0613","all"], help="Choose a model")
 parser.add_argument('--maxattempt', dest='maxattempt', default=10, help='max number of prompts to openai',type=int)
 
 
@@ -18,7 +18,7 @@ args = parser.parse_args()
 client = OpenAI(api_key=args.openaikey,organization=args.openaiorg)
 
 if args.models=="all":
-    LLM_models=["gpt-3.5-turbo-0613", "gpt-4-0613"]
+    LLM_models=["gpt-3.5-turbo", "gpt-4-0613"]
 else:
     LLM_models = [args.models]
 data = pd.read_csv(args.testdataset)[:args.samplenum]

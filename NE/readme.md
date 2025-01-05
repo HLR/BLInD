@@ -1,5 +1,9 @@
 # Number Extraction with Large Language Models (NE Subtask)
 
+## Important Update
+
+**Note:** The `gpt-3.5-turbo-0613` model is deprecated and replaced with `gpt-3.5-turbo`. Consequently, results obtained using `gpt-3.5-turbo` may differ from those reported in earlier experiments using `gpt-3.5-turbo-0613`.
+
 ## Installation
 
 1. Clone the repository:
@@ -20,7 +24,7 @@ To query LLMs for GG, use the `main.py` script:
 ```bash
 python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] [--openaikey OPENAIKEY]
 [--openaiorg OPENAIORG] [--samplenum SAMPLENUM]
-[--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--maxattempt MAXATTEMPT] [--reversed]
+[--models {gpt-3.5-turbo,gpt-4-0613,all}] [--maxattempt MAXATTEMPT] [--reversed]
 ```
 
 - `--testdataset`: Input test dataset (default: "../datasets/Colored_1000_examples.csv")
@@ -28,7 +32,7 @@ python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] [--op
 - `--openaikey`: OpenAI API key
 - `--openaiorg`: OpenAI organization key
 - `--samplenum`: Number of instances of the dataset to read (Max is 900)
-- `--models`: Choose a model (choices: "gpt-3.5-turbo-0613", "gpt-4-0613", "all", default: "all")
+- `--models`: Choose a model (choices: "gpt-3.5-turbo", "gpt-4-0613", "all", default: "all")
 - `--maxattempt`: Max number of attempts after a failed prompt to OpenAI (default: 10)
 - `--reversed`: Whether to reverse the order of operations by including the graph first. (default: False)
 
@@ -39,12 +43,12 @@ This program saves every answer after each prompt. If it terminates, run it agai
 To test LLMs for GG, use the `test.py` script:
 ```bash
 python test.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET]
-[--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--reversed]
+[--models {gpt-3.5-turbo,gpt-4-0613,all}] [--reversed]
 ```
 
 - `--testdataset`: Input test dataset (default: "../datasets/Colored_1000_examples.csv")
 - `--outputdataset`: Dataset folder that has saved the results (default: "../datasets/")
-- `--models`: Choose a model (choices: "gpt-3.5-turbo-0613", "gpt-4-0613", "all", default: "all")
+- `--models`: Choose a model (choices: "gpt-3.5-turbo", "gpt-4-0613", "all", default: "all")
 - `--reversed`: Whether to reverse the order of operations by including the graph first. (default: False)
 
   
@@ -55,7 +59,7 @@ The code uses a test dataset specified by the `--testdataset` argument. By defau
 ## Models
 
 The code supports running Bayesian inference with the following LLMs:
-- GPT-3.5-turbo-0613
+- gpt-3.5-turbo
 - GPT-4-0613
 
 You can specify the model(s) to use with the `--models` argument. By default, it runs inference with both models one after the other.

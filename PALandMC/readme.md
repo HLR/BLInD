@@ -1,5 +1,9 @@
 # Bayesian Inference with Large Language Models Using PAL and MC
 
+## Important Update
+
+**Note:** The `gpt-3.5-turbo-0613` model is deprecated and replaced with `gpt-3.5-turbo`. Consequently, results obtained using `gpt-3.5-turbo` may differ from those reported in earlier experiments using `gpt-3.5-turbo-0613`.
+
 ## Installation
 
 1. Clone the repository:
@@ -20,7 +24,7 @@ To query LLMs for Bayesian inference using PAL and MC methods, use the `main.py`
 ```bash
 python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] [--openaikey OPENAIKEY]
 [--openaiorg OPENAIORG] [--method {PAL,MC}] [--samplenum SAMPLENUM]
-[--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--maxattempt MAXATTEMPT] [--CLADDER]
+[--models {gpt-3.5-turbo,gpt-4-0613,all}] [--maxattempt MAXATTEMPT] [--CLADDER]
 ```
 
 - `--testdataset`: Input test dataset (default: "../datasets/Colored_1000_examples.csv")
@@ -29,7 +33,7 @@ python main.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET] [--op
 - `--openaiorg`: OpenAI organization key
 - `--method`: Method to solve the problem (choices: "PAL", "MC", default: "PAL")
 - `--samplenum`: Number of instances of the dataset to read (Max is 900)
-- `--models`: Choose a model (choices: "gpt-3.5-turbo-0613", "gpt-4-0613", "all", default: "all")
+- `--models`: Choose a model (choices: "gpt-3.5-turbo", "gpt-4-0613", "all", default: "all")
 - `--maxattempt`: Max number of attempts after a failed prompt to OpenAI (default: 10)
 - `--CLADDER`: Use CLADDER dataset (default: False)
 
@@ -41,11 +45,11 @@ This program saves every answer after each prompt. If it terminates, run it agai
 To test LLMs using PAL and MC methods, use the `test.py` script:
 ```bash
 python test.py [--testdataset TESTDATASET] [--outputdataset OUTPUTDATASET]
-[--models {gpt-3.5-turbo-0613,gpt-4-0613,all}] [--method {PAL,MC}] [--CLADDER]
+[--models {gpt-3.5-turbo,gpt-4-0613,all}] [--method {PAL,MC}] [--CLADDER]
 ```
 - `--testdataset`: Input test dataset (default: "../datasets/Colored_1000_examples.csv")
 - `--outputdataset`: Dataset folder that has saved the results (default: "../datasets/")
-- `--models`: Choose a model (choices: "gpt-3.5-turbo-0613", "gpt-4-0613", "all", default: "all")
+- `--models`: Choose a model (choices: "gpt-3.5-turbo", "gpt-4-0613", "all", default: "all")
 - `--method`: Specifies the method whose result is to be tested. Available choices are "PAL" and "MC". The default value is "PAL".
 - `--CLADDER`: Use CLADDER dataset (default: False)
 
@@ -56,7 +60,7 @@ The code uses a test dataset specified by the `--testdataset` argument. By defau
 ## Models
 
 The code supports running Bayesian inference with the following LLMs:
-- GPT-3.5-turbo-0613
+- gpt-3.5-turbo
 - GPT-4-0613
 
 You can specify the model(s) to use with the `--models` argument. By default, it runs inference with both models one after the other.

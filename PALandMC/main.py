@@ -10,7 +10,7 @@ parser.add_argument('--openaikey', dest='openaikey', default="", help='openai ke
 parser.add_argument('--openaiorg', dest='openaiorg', default="", help='openai org',type=str)
 parser.add_argument('--method', dest='method', default="PAL",choices=["PAL", "MC"], help='method to solve the problem')
 parser.add_argument('--samplenum', dest='samplenum', default=2000, help='how many instances of the dataset to read',type=int)
-parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo-0613", "gpt-4-0613","all"], help="Choose a model")
+parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo", "gpt-4-0613","all"], help="Choose a model")
 parser.add_argument('--maxattempt', dest='maxattempt', default=10, help='max number of attempts after a failed prompt to openai',type=int)
 parser.add_argument('--CLADDER', dest='CLADDER', action='store_true', help='use CLADDER dataset', default=False)
 args = parser.parse_args()
@@ -21,7 +21,7 @@ if args.CLADDER:
     args.testdataset="../datasets/CLADDER_test.csv"
 
 if args.models=="all":
-    LLM_models=["gpt-3.5-turbo-0613", "gpt-4-0613"]
+    LLM_models=["gpt-3.5-turbo", "gpt-4-0613"]
 else:
     LLM_models = [args.models]
 data = pd.read_csv(args.testdataset)[:args.samplenum]
