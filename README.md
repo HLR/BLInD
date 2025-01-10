@@ -56,11 +56,12 @@ pip install -r requirements.txt
 To cite our work, please use the following BibTeX entry:
 
 ```bibtex
-@misc{nafar2024probabilistic,
-      title={Probabilistic Reasoning in Generative Large Language Models},
+@misc{nafar2024reasoninguncertaintextgenerative,
+      title={Reasoning over Uncertain Text by Generative Large Language Models}, 
       author={Aliakbar Nafar and Kristen Brent Venable and Parisa Kordjamshidi},
       year={2024},
       eprint={2402.09614},
       archivePrefix={arXiv},
-      primaryClass={cs.CL}
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2402.09614}, 
 }
