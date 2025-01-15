@@ -1,4 +1,4 @@
-# Reasoning over Uncertain Text by Generative Large Language Models
+# Reasoning over Uncertain Text by Generative Large Language Models (AAAI 2025)
 
 This repository is dedicated to the research and findings presented in the paper ["Reasoning over Uncertain Text by Generative Large Language Models."](https://arxiv.org/abs/2402.09614) Our study introduces the Bayesian Linguistic Inference Dataset (BLInD) and delves into the capabilities and limitations of Large Language Models (LLMs) in executing probabilistic reasoning with explicitly quantified uncertainties.
 
