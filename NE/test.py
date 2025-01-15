@@ -5,15 +5,9 @@ from openai import OpenAI
 parser = argparse.ArgumentParser(description='Test LLMs for Number Extraction')
 parser.add_argument('--testdataset', dest='testdataset', default="../datasets/Colored_1000_examples.csv", help='input test dataset',type=str)
 parser.add_argument('--outputdataset', dest='outputdataset', default="../datasets/", help='Dataset folder that has saved the results',type=str)
-parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo-0613", "gpt-4-0613","all"], help="Choose a model")
+parser.add_argument('--models',dest='models',nargs='+',default=["gpt-3.5-turbo", "gpt-4-0613","meta/meta-llama-3-70b-instruct","mistralai/mistral-7b-instruct-v0.2", "meta/llama-2-70b-chat"],choices=["gpt-3.5-turbo", "gpt-4-0613","meta/meta-llama-3-70b-instruct","mistralai/mistral-7b-instruct-v0.2", "meta/llama-2-70b-chat"], help="Specify one or more models.")
 parser.add_argument('--reversed', dest='reversed', action='store_true', help='Whether to reverse the order of operations by including the graph first', default=False)
 args = parser.parse_args()
-
-
-if args.models=="all":
-    LLM_models=["gpt-3.5-turbo-0613", "gpt-4-0613"]
-else:
-    LLM_models = [args.models]
 
 data = pd.read_csv(args.testdataset)
 
@@ -65,13 +59,16 @@ def correct_probablities(text,g_text):
     return len(set(probabilities.items()) & set(probability_gpt.items())),probabilities==probability_gpt
 
 for graph_use in [False,True]:
-    for model_name in LLM_models:
+    for model_name in args.models:
+        model_name_folder=model_name
+        if "/" in model_name:
+            model_name_folder=model_name.split("/")[1]
         if not graph_use and args.reversed:
             continue
         if not args.reversed:
-            file_name = args.outputdataset+"number_extraction_model_name "+model_name+" graph included "+str(graph_use)+".csv"
+            file_name = args.outputdataset+"number_extraction_model_name "+model_name_folder+" graph included "+str(graph_use)+".csv"
         else:
-            file_name = args.outputdataset+"number_extraction_model_name "+model_name+" graph included "+str(graph_use)+"_reversed.csv"        
+            file_name = args.outputdataset+"number_extraction_model_name "+model_name_folder+" graph included "+str(graph_use)+"_reversed.csv"        
         if not os.path.exists(file_name):
             continue
         asnwer_data = pd.read_csv(file_name)[:]
