@@ -4,13 +4,9 @@ import pandas as pd
 parser = argparse.ArgumentParser(description='Test LLMs for Graph Generation')
 parser.add_argument('--testdataset', dest='testdataset', default="../datasets/Colored_1000_examples.csv", help='input test dataset',type=str)
 parser.add_argument('--outputdataset', dest='outputdataset', default="../datasets/", help='Dataset folder that has saved the results',type=str)
-parser.add_argument('--models', dest='models',default="all", choices=["gpt-3.5-turbo-0613", "gpt-4-0613","all"], help="Choose a model")
+parser.add_argument('--models',dest='models',nargs='+',default=["gpt-3.5-turbo", "gpt-4-0613","meta/meta-llama-3-70b-instruct","mistralai/mistral-7b-instruct-v0.2", "meta/llama-2-70b-chat"],choices=["gpt-3.5-turbo", "gpt-4-0613","meta/meta-llama-3-70b-instruct","mistralai/mistral-7b-instruct-v0.2", "meta/llama-2-70b-chat"], help="Specify one or more models.")
 args = parser.parse_args()
 
-if args.models=="all":
-    LLM_models=["gpt-3.5-turbo-0613", "gpt-4-0613"]
-else:
-    LLM_models = [args.models]
 data = pd.read_csv(args.testdataset)
 
 def parse_graph1(graph_string):
@@ -31,9 +27,13 @@ def parse_graph2(graph_string):
 def graphs_match(graph1, graph2):
     return len(set(parse_graph1(graph1).items()) & set(parse_graph2(graph2).items())),parse_graph1(graph1) == parse_graph2(graph2)
 
-for model_name in LLM_models:
+for model_name in args.models:
 
-    file_name = args.outputdataset+"graph_model_name "+model_name+".csv"
+    model_name_folder=model_name
+    if "/" in model_name:
+        model_name_folder=model_name.split("/")[1]
+    file_name = args.outputdataset+"graph_model_name "+model_name_folder+".csv"
+
     if not os.path.exists(file_name):
         continue
     asnwer_data = pd.read_csv(file_name)[:]
