@@ -56,12 +56,17 @@ pip install -r requirements.txt
 To cite our work, please use the following BibTeX entry:
 
 ```bibtex
-@misc{nafar2024reasoninguncertaintextgenerative,
-      title={Reasoning over Uncertain Text by Generative Large Language Models}, 
-      author={Aliakbar Nafar and Kristen Brent Venable and Parisa Kordjamshidi},
-      year={2024},
-      eprint={2402.09614},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2402.09614}, 
+@article{
+Nafar_Venable_Kordjamshidi_2025,
+title={Reasoning over Uncertain Text by Generative Large Language Models},
+volume={39},
+url={https://ojs.aaai.org/index.php/AAAI/article/view/34674},
+DOI={10.1609/aaai.v39i23.34674},
+abstractNote={This paper considers the challenges Large Language Models (LLMs) face when reasoning over text that includes information involving uncertainty explicitly quantified via probability values. This type of reasoning is relevant to a variety of contexts ranging from everyday conversations to medical decision-making. Despite improvements in the mathematical reasoning capabilities of LLMs, they still exhibit significant difficulties when it comes to probabilistic reasoning. To deal with this problem, we introduce the Bayesian Linguistic Inference Dataset (BLInD), a new dataset specifically designed to test the probabilistic reasoning capabilities of LLMs. We use BLInD to find out the limitations of LLMs for tasks involving probabilistic reasoning. In addition, we present several prompting strategies that map the problem to different formal representations, including Python code, probabilistic algorithms, and probabilistic logical programming. We conclude by providing an evaluation of our methods on BLInD and an adaptation of a causal reasoning question-answering dataset. Our empirical results highlight the effectiveness of our proposed strategies for multiple LLMs.},
+number={23},
+journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+author={Nafar, Aliakbar and Venable, Kristen Brent and Kordjamshidi, Parisa},
+year={2025},
+month={Apr.},
+pages={24911-24920}
 }
